@@ -1,0 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  font-family: 'Outfit', 'Inter', system-ui, sans-serif;
+  background-color: #f0fdf4;
+  color: #111827;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  background: #f0fdf4;
+  color: #111827;
+}
+
+::selection {
+  background: rgba(34, 197, 94, 0.35);
+  color: #ffffff;
+}
+
+button,
+a,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+section {
+  position: relative;
+}
+
+/* Light glass panel — for white/light sections */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(134, 239, 172, 0.35);
+  backdrop-filter: blur(18px);
+}
+
+/* Dark glass panel — for dark green sections */
+.glass-panel-dark {
+  background: rgba(5, 46, 22, 0.72);
+  border: 1px solid rgba(134, 239, 172, 0.15);
+  backdrop-filter: blur(18px);
+}
+
+.gradient-ring {
+  background: radial-gradient(circle, rgba(34, 197, 94, 0.24) 0%, transparent 62%);
+}
+
+.pulse-glow {
+  box-shadow: 0 0 120px rgba(34, 197, 94, 0.22);
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.smooth-scroll {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-drift,
+  .animate-marquee,
+  .animate-shimmer {
+    animation: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-inner {
+    padding: 3rem 1.25rem;
+  }
+}
