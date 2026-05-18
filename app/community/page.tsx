@@ -21,7 +21,7 @@ export default function CommunityPage() {
       <main className="relative min-h-screen overflow-hidden px-6 pt-28 pb-10 text-white sm:px-8 lg:px-10">
         <div
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1920&h=1080&fit=crop&crop=center)' }}
+          style={{ backgroundImage: 'url(/backend.jpg)' }}
         />
         <div className="absolute inset-0 bg-green-950/65" />
         <div className="absolute inset-0 bg-gradient-to-b from-green-950/30 via-green-950/10 to-green-950/70" />
