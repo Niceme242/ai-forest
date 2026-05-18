@@ -349,7 +349,7 @@ function TeamSection({ showToast }: { showToast: (m: string, t?: 'success' | 'er
   const handleSave = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!editing) return;
-    const payload = { name: editing.name, role: editing.role, description: editing.description, src: editing.src, sort_order: editing.id ?? 0 };
+    const payload = { name: editing.name, role: editing.role, position: editing.position, description: editing.description, src: editing.src, sort_order: editing.id ?? 0 };
     try {
       if (editing.id && items.find(m => m.id === editing.id)) {
         const r = await fetch(`/api/team/${editing.id}`, { method: 'PUT', headers: AUTH_HEADERS, body: JSON.stringify(payload) });
@@ -375,7 +375,7 @@ function TeamSection({ showToast }: { showToast: (m: string, t?: 'success' | 'er
     setDeleting(null);
   };
 
-  const emptyMember = (): TeamMember => ({ id: 0, name: '', role: '', description: '', src: '' });
+  const emptyMember = (): TeamMember => ({ id: 0, name: '', role: '', position: '', description: '', src: '' });
 
   return (
     <div>
@@ -394,6 +394,9 @@ function TeamSection({ showToast }: { showToast: (m: string, t?: 'success' | 'er
                 <Field label="Nom *"><input required value={editing.name} onChange={e => setEditing({ ...editing, name: e.target.value })} className={inputCls} /></Field>
                 <Field label="Rôle / Poste *"><input required value={editing.role} onChange={e => setEditing({ ...editing, role: e.target.value })} className={inputCls} /></Field>
               </div>
+              <Field label="Position / Localisation" note="ex: Dakar, Sénégal · Congo-Brazzaville">
+                <input value={editing.position ?? ''} onChange={e => setEditing({ ...editing, position: e.target.value })} placeholder="ex: Dakar, Sénégal" className={inputCls} />
+              </Field>
               <Field label="Biographie *"><textarea required rows={3} value={editing.description} onChange={e => setEditing({ ...editing, description: e.target.value })} className={textareaCls} /></Field>
               <Field label="URL photo">
                 <input type="url" value={editing.src} onChange={e => setEditing({ ...editing, src: e.target.value })} className={inputCls} />

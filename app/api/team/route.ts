@@ -5,7 +5,7 @@ import { requireAuth, unauthorized, serverError } from '@/lib/auth';
 export async function GET() {
   try {
     const result = await pool.query(
-      `SELECT id, name, role, description, src, sort_order, created_at, updated_at
+      `SELECT id, name, role, position, description, src, sort_order, created_at, updated_at
        FROM team_members
        ORDER BY sort_order ASC`
     );
@@ -16,12 +16,12 @@ export async function GET() {
 export async function POST(request: NextRequest) {
   if (!requireAuth(request)) return unauthorized();
   try {
-    const { name, role, description, src, sort_order } = await request.json();
+    const { name, role, position, description, src, sort_order } = await request.json();
     const result = await pool.query(
-      `INSERT INTO team_members (name, role, description, src, sort_order)
-       VALUES ($1, $2, $3, $4, $5)
+      `INSERT INTO team_members (name, role, position, description, src, sort_order)
+       VALUES ($1, $2, $3, $4, $5, $6)
        RETURNING *`,
-      [name, role, description ?? null, src ?? null, sort_order ?? 0]
+      [name, role, position ?? '', description ?? null, src ?? null, sort_order ?? 0]
     );
     return NextResponse.json({ member: result.rows[0] }, { status: 201 });
   } catch (err) { return serverError(err); }

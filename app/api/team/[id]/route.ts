@@ -5,13 +5,13 @@ import { requireAuth, unauthorized, serverError } from '@/lib/auth';
 export async function PUT(request: NextRequest, { params }: { params: { id: string } }) {
   if (!requireAuth(request)) return unauthorized();
   try {
-    const { name, role, description, src, sort_order } = await request.json();
+    const { name, role, position, description, src, sort_order } = await request.json();
     const result = await pool.query(
       `UPDATE team_members
-       SET name = $1, role = $2, description = $3, src = $4, sort_order = $5, updated_at = NOW()
-       WHERE id = $6
+       SET name = $1, role = $2, position = $3, description = $4, src = $5, sort_order = $6, updated_at = NOW()
+       WHERE id = $7
        RETURNING *`,
-      [name, role, description ?? null, src ?? null, sort_order ?? 0, params.id]
+      [name, role, position ?? '', description ?? null, src ?? null, sort_order ?? 0, params.id]
     );
     if (!result.rows.length) return NextResponse.json({ error: 'Membre introuvable' }, { status: 404 });
     return NextResponse.json({ member: result.rows[0] });

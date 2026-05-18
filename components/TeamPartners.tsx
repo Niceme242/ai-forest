@@ -207,6 +207,11 @@ export function TeamPartners() {
                 <p className="mt-1 text-xs font-semibold uppercase tracking-[0.22em] text-green-600">
                   {member.role}
                 </p>
+                {member.position && (
+                  <p className="mt-1 inline-flex items-center gap-1 rounded-full bg-green-100 px-2.5 py-0.5 text-[10px] font-medium text-green-700">
+                    📍 {member.position}
+                  </p>
+                )}
                 <p className="mt-3 text-sm leading-6 text-gray-600">{member.description}</p>
               </motion.div>
             ))}
