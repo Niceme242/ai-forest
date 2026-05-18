@@ -163,12 +163,7 @@ export const DEFAULT_ARTICLES: Article[] = [
   },
 ];
 
-export const DEFAULT_TEAM: TeamMember[] = [
-  { id: 1, name: 'Kofi Mensah',      role: 'PDG & Co-Fondateur',       position: '', description: "Agronome avec plus de 12 ans d'expérience terrain en Afrique Centrale et de l'Ouest. Convaincu que la technologie peut moderniser l'agriculture familiale.", src: '' },
-  { id: 2, name: 'Amina Diallo',     role: 'Directrice Technique & IA', position: '', description: "Ingénieure en apprentissage automatique spécialisée dans les modèles de données agricoles. Ancienne chercheuse à l'Institut Africain des Sciences Mathématiques.", src: '' },
-  { id: 3, name: 'Jean-Pierre Nkosi',role: 'Responsable Produit',       position: '', description: 'Designer produit et stratège UX spécialisé dans les outils adaptés aux environnements à faible connectivité, au service des communautés rurales.', src: '' },
-  { id: 4, name: 'Fatou Camara',     role: 'Communauté & Croissance',   position: '', description: "Spécialiste en vulgarisation agricole, elle fait le lien entre la technologie et les agriculteurs sur le terrain. Elle pilote l'accompagnement dans 6 pays.", src: '' },
-];
+export const DEFAULT_TEAM: TeamMember[] = [];
 
 export const DEFAULT_PARTNERS: Partner[] = [
   { id: 1, name: 'FAO', description: 'Food & Agriculture Organization', href: 'https://www.fao.org' },

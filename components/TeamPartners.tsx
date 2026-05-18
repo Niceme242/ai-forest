@@ -159,7 +159,7 @@ function PartnerModal({ onClose }: { onClose: () => void }) {
 
 export function TeamPartners() {
   const [modalOpen, setModalOpen] = useState(false);
-  const [team, setTeam] = useState<TeamMember[]>(DEFAULT_TEAM);
+  const [team, setTeam] = useState<TeamMember[]>([]);
   const [rawPartners, setRawPartners] = useState<Partner[]>(DEFAULT_PARTNERS);
 
   useEffect(() => {

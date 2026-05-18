@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
-  DEFAULT_ARTICLES, DEFAULT_TEAM, DEFAULT_PARTNERS, DEFAULT_GALLERY,
+  DEFAULT_ARTICLES, DEFAULT_PARTNERS, DEFAULT_GALLERY,
   DEFAULT_WORKFLOW, DEFAULT_GUIDE, DEFAULT_DOWNLOADS, DEFAULT_FOOTER,
   type Article, type TeamMember, type Partner, type GalleryImage,
   type WorkflowStep, type GuideSection, type DownloadLinks, type FooterInfo,
@@ -343,7 +343,7 @@ function TeamSection({ showToast }: { showToast: (m: string, t?: 'success' | 'er
   const [deleting, setDeleting] = useState<TeamMember | null>(null);
 
   useEffect(() => {
-    fetch('/api/team').then(r => r.json()).then(d => setItems(d.team ?? DEFAULT_TEAM)).catch(() => setItems(DEFAULT_TEAM));
+    fetch('/api/team').then(r => r.json()).then(d => setItems(d.team ?? [])).catch(() => setItems([]));
   }, []);
 
   const handleSave = async (e: React.FormEvent) => {
