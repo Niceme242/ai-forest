@@ -10,7 +10,7 @@ const navLinks = [
   { label: 'Accueil', href: '/' },
   { label: 'Fonctionnalités', href: '/features' },
   { label: 'IA & Monitoring', href: '/monitoring' },
-
+  { label: 'AVA', href: '/ava' },
   { label: 'Communauté', href: '/community' },
   { label: 'Guide', href: '/guide' },
   { label: 'Actualités', href: '/news' },

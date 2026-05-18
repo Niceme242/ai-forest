@@ -9,6 +9,7 @@ const quickLinks = [
   { label: 'Accueil', href: '/' },
   { label: 'Fonctionnalités', href: '/features' },
   { label: 'IA & Monitoring', href: '/monitoring' },
+  { label: 'AVA — Assistante IA', href: '/ava' },
   { label: 'Communauté', href: '/community' },
   { label: 'Guide', href: '/guide' },
   { label: 'Actualités', href: '/news' },
